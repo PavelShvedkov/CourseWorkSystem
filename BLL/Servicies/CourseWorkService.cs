@@ -25,7 +25,16 @@ namespace BLL.Servicies
             courseWorkRepo =  courseWorks ?? throw new ArgumentNullException(nameof(courseWorks));
             this.sender = sender ?? throw new ArgumentNullException(nameof(sender));
 
-            mapper = new MapperConfiguration(c => c.AddProfile(new MappingProfile())).CreateMapper();
+            mapper = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Student, StudentDto>();
+                cfg.CreateMap<StudentDto, Student>();
+                cfg.CreateMap<MentorDto, Mentor>();
+                cfg.CreateMap<Mentor, MentorDto>();
+                cfg.CreateMap<CourseWorkDto, CourseWork>();
+                cfg.CreateMap<CourseWork, CourseWorkDto>();
+
+            }).CreateMapper();
         }
         
         public IEnumerable<CourseWork> GetCourseWorks()

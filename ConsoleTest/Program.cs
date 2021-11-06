@@ -23,11 +23,11 @@ namespace ConsoleTest
             var works = service.GetCourseWorks().Take(5);
             
             service.Publish(mentor,works);
-            
-            /*foreach (var s in studentss)
+
+            foreach (var s in studentss)
             {
                 Console.WriteLine($"{s.Course};");
-            }*/
+            }
 
             var student = studentss.First();
             service.Select(student,works.First());

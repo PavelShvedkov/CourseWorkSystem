@@ -1,6 +1,6 @@
 namespace BLL.Interface.Entities
 {
-    public enum Status: byte
+    public enum Status
     {
         NotAppointed,
         ConfirmationAwaiting,

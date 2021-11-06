@@ -27,14 +27,14 @@ namespace Web.UI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            
             services.AddSingleton<IStudentRepository,StudentRepository>();
             services.AddSingleton<IMentorRepository,MentorRepository>();
             services.AddSingleton<ICourseWorkRepository,CourseWorkRepository>();
             services.AddScoped<ICourseWorkService,CourseWorkService>();
             services.AddScoped<IMessageSender,MailMessageSender>();
-            services.AddScoped(typeof(MappingProfile));
+            services.AddScoped(typeof(MappingProfileWeb));
+            services.AddControllersWithViews();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
