@@ -1,6 +1,6 @@
-namespace DAL.Interface.DTO
+﻿namespace Web.UI.ViewModels
 {
-    public enum StatusDto
+    public enum StatusViewModel
     {
         NotAppointed,
         ConfirmationAwaiting,
