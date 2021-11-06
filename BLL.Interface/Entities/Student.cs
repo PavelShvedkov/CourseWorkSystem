@@ -13,8 +13,6 @@ namespace BLL.Interface.Entities
 
         public void SelectCourseWork(CourseWork courseWork, IMessageSender messageSender)
         {
-            courseWork.Selecting(this);
-            
             courseWork.Confirmed += (sender, args) =>
             {
                 var courseWork = sender as CourseWork;
@@ -34,6 +32,8 @@ namespace BLL.Interface.Entities
                                         $"{args.Email}";
                 messageSender.Send();
             };
+            
+            courseWork.Selecting(this);
         }
         
         public bool Equals(Student other)

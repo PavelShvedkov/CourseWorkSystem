@@ -14,16 +14,34 @@ namespace ConsoleTest
             CourseWorkRepository courseWorks = new CourseWorkRepository();
             MentorRepository mentors = new MentorRepository();
             StudentRepository students = new StudentRepository();
-            IMessageSender sender = new ConsoleMessageSender("dfjsfdnjnbjsndb;jndb");
+            IMessageSender sender = new ConsoleMessageSender("QWEERTREBDBNBDBBSDJBNDJ SD");
             CourseWorkService service = new CourseWorkService(students,mentors,courseWorks,sender);
 
             var mentorss= service.GetMentors();
             var mentor = mentorss.First();
-            var works = courseWorks.Get().Take(5);
+            var studentss = service.GetStudents();
+            var works = service.GetCourseWorks().Take(5);
+            
             service.Publish(mentor,works);
-            foreach (var m in mentorss)
+            
+            /*foreach (var s in studentss)
             {
-                Console.WriteLine($"{mentor.FullName}; {mentor.Id}; {mentor.Email} ");
+                Console.WriteLine($"{s.Course};");
+            }*/
+
+            var student = studentss.First();
+            service.Select(student,works.First());
+            
+            foreach (var work in works)
+            {
+             Console.WriteLine($"Title: {work.Title}; Status: {work.Status};");
+            }
+            
+            service.Approve(mentor,works.First());
+            
+            foreach (var work in works)
+            {
+                Console.WriteLine($"Title: {work.Title}; Status: {work.Status};");
             }
         }
     }

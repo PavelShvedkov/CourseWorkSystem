@@ -24,5 +24,11 @@ namespace DAL.Fake.Repositories
         {
             return courseWorks.First(s=> s.Id==id);
         }
+
+        public void Update(CourseWorkDto work)
+        {
+            var workDto = courseWorks.Find(w=>w.Id==work.Id);
+            workDto.Status = work.Status;
+        }
     }
 }

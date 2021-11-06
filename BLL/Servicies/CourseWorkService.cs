@@ -5,6 +5,7 @@ using AutoMapper;
 using BLL.Interface.Entities;
 using BLL.Interface.Servicies;
 using BLL.Mappers;
+using DAL.Interface.DTO;
 using DAL.Interface.Repositories;
 
 namespace BLL.Servicies
@@ -45,16 +46,19 @@ namespace BLL.Servicies
         public void Select(Student student, CourseWork courseWork)
         {
             student.SelectCourseWork(courseWork,sender);
+            courseWorkRepo.Update(mapper.Map<CourseWorkDto>(courseWork));
         }
 
         public void Approve(Mentor mentor, CourseWork courseWork)
         {
-            throw new System.NotImplementedException();
+            mentor.Approve(courseWork);
+            courseWorkRepo.Update(mapper.Map<CourseWorkDto>(courseWork));
         }
 
         public void Decline(Mentor mentor, CourseWork courseWork)
         {
-            throw new System.NotImplementedException();
+            mentor.Decline(courseWork);
+            courseWorkRepo.Update(mapper.Map<CourseWorkDto>(courseWork));
         }
 
         public void Publish(Mentor mentor, IEnumerable<CourseWork> courseWorks)

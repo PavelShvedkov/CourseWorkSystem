@@ -47,5 +47,28 @@ namespace BLL.Interface.Entities
                 this.CourseWorks.Add(work);
             }
         }
+        public void Approve(CourseWork courseWork)
+        {
+            foreach (var work in CourseWorks)
+            {
+                if (courseWork != null && work.Equals(courseWork))
+                {
+                    courseWork.Approving(this);
+                    return;
+                }
+            }
+        }
+        public void Decline(CourseWork courseWork)
+        {
+            foreach (var work in CourseWorks)
+            {
+                if (courseWork != null && work.Equals(courseWork))
+                {
+                    courseWork.Declining(this);
+                    return;
+                }
+            }
+        }
+
     }
 }
