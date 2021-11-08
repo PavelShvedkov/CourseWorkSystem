@@ -13,26 +13,27 @@ namespace BLL.Interface.Entities
 
         public void SelectCourseWork(CourseWork courseWork, IMessageSender messageSender)
         {
-            courseWork.Confirmed += (sender, args) =>
+            courseWork.Confirmed += (sender, e) =>
             {
-                var courseWork = sender as CourseWork;
-                messageSender.Message = $"Hello, {this.FullName}!\t" +
-                                        $"{courseWork.Title} approved\t" +
-                                        $"{args.FullName}\t" + 
-                                        $"{args.Email}";
+                this.CourseWork = sender as CourseWork;
+
+                messageSender.Message = $"Good day, {this.FullName}!" +
+                                        $"\n\nCoursework '{CourseWork?.Title}' has been approved by '{e.FullName}'." +
+                                        $"\nInformation to contact to your mentor: {e?.FullName}." +
+                                        $"\n\nBest Regards, Coursework Management System!";
+
                 messageSender.Send();
             };
-            
-            courseWork.Declined += (sender, args) =>
+
+            courseWork.Declined += (sender, e) =>
             {
-                var courseWork = sender as CourseWork;
-                messageSender.Message = $"Hello, {this.FullName}!\t" +
-                                        $"{courseWork.Title} declined\t" +
-                                        $"{args.FullName}\t" + 
-                                        $"{args.Email}";
+                messageSender.Message = $"Good day, {this.FullName!}" +
+                                        $"\n\nCoursework '{CourseWork?.Title}' has been declined by '{e.FullName}'." +
+                                        $"\n\nBest Regards, Coursework Management System!";
+
                 messageSender.Send();
             };
-            
+
             courseWork.Selecting(this);
         }
         

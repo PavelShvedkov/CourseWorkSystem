@@ -11,8 +11,7 @@ namespace DAL.Fake.Repositories
         private List<CourseWorkDto> courseWorks = new Faker<CourseWorkDto>("en")
             .RuleFor(s => s.Id, f => f.UniqueIndex+1)
             .RuleFor(s => s.Title,f => f.Lorem.Lines(1))
-            //.RuleFor(s => s.Status, f => f.Random.Enum(StatusDto.Appointed,StatusDto.ConfirmationAwaiting))
-            .RuleFor(s => s.Status, f => f.Random.Enum(StatusDto.ConfirmationAwaiting))
+            .RuleFor(s => s.Status, f => f.Random.Enum(StatusDto.Appointed,StatusDto.ConfirmationAwaiting))
             .Generate(10)
             .ToList();
         

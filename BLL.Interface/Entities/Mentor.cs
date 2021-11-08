@@ -34,19 +34,25 @@ namespace BLL.Interface.Entities
         {
             foreach (var work in courseWorks)
             {
+                work.Mentor = this;
+
                 work.Selected += (sender, args) =>
                 {
-                    var courseWork = sender as CourseWork;
-                    messageSender.Message = $"Hello, {this.FullName}!\t" +
-                                            $"{courseWork.Title}\t" +
-                                            $"{args.FullName}\t" + 
-                                            $"{args.Email}";
+                    var work = sender as CourseWork;
+
+                    messageSender.Message = $"\nGood day, {this.FullName}!" +
+                                            $"\n\nYour coursework '{work?.Title}' has been selected by '{args.FullName}'." +
+                                            $"\nWaiting for your approve." +
+                                            $"\nEmail of the student for contact: {args.Email}." +
+                                            $"\n\nBest Regards, Coursework Management System!";
+
                     messageSender.Send();
                 };
                 
                 this.CourseWorks.Add(work);
             }
         }
+
         public void Approve(CourseWork courseWork)
         {
             foreach (var work in CourseWorks)

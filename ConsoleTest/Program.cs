@@ -24,25 +24,28 @@ namespace ConsoleTest
             
             service.Publish(mentor,works);
 
-            foreach (var s in studentss)
-            {
-                Console.WriteLine($"{s.Course};");
-            }
+            //foreach (var s in studentss)
+            //{
+            //    Console.WriteLine($"{s.Course};");
+            //}
+
+            var courseWork = works.First();
 
             var student = studentss.First();
-            service.Select(student,works.First());
+
+            service.Select(student, courseWork);
             
-            foreach (var work in works)
-            {
-             Console.WriteLine($"Title: {work.Title}; Status: {work.Status};");
-            }
+            // foreach (var work in works)
+            // {
+            //  Console.WriteLine($"Title: {work.Title}; Status: {work.Status};");
+            // }
             
-            service.Approve(mentor,works.First());
+            service.Approve(mentor, courseWork);
             
-            foreach (var work in works)
-            {
-                Console.WriteLine($"Title: {work.Title}; Status: {work.Status};");
-            }
+            //foreach (var work in works)
+            //{
+            //    Console.WriteLine($"Title: {work.Title}; Status: {work.Status};");
+            //}
         }
     }
 }
