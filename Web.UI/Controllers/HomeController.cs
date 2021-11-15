@@ -32,5 +32,24 @@ namespace Web.UI.Controllers
                 .Select(s => mapper.Map<Student, StudentViewModel>(s));
             return View(works);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            /*CourseWorkViewModel work = new CourseWorkViewModel()
+            {
+                Title = "Enter the title"
+            };*/
+            
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult Create(CourseWorkViewModel courseWork)
+        {
+            CourseWork work = mapper.Map<CourseWork>(courseWork);
+            service.Add(mapper.Map<CourseWork>(courseWork));
+            return RedirectToAction("Index");
+        }
     }
 }

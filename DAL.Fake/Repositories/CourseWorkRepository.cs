@@ -30,5 +30,10 @@ namespace DAL.Fake.Repositories
             var workDto = courseWorks.Find(w=>w.Id==work.Id);
             workDto.Status = work.Status;
         }
+
+        public void Add(CourseWorkDto work)
+        {
+          courseWorks.Add(work);
+        }
     }
 }

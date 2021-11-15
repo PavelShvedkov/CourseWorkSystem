@@ -5,5 +5,6 @@ namespace DAL.Interface.Repositories
     public interface ICourseWorkRepository: IRepository<CourseWorkDto>
     {
         void Update(CourseWorkDto work);
+        void Add(CourseWorkDto work);
     }
 }

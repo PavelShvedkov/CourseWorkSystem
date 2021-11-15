@@ -13,5 +13,6 @@ namespace BLL.Interface.Servicies
         void Select(Student student, CourseWork courseWork);
         void Approve(Mentor mentor, CourseWork courseWork);
         void Decline(Mentor mentor, CourseWork courseWork);
+        void Add(CourseWork courseWork);
     }
 }

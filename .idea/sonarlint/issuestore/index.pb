@@ -11,32 +11,20 @@ O
 DAL.Interface/DTO/StudentDto.cs,4/2/420673d9c8f74cf85af96f699cbae5e266e3fadd
 D
 CourseWorkSystem.sln,b/c/bc7d4516aad6a56a5000a653ac06e84a9ac152b9
-]
--BLL.Interface/Servicies/ICourseWorkService.cs,1/d/1dd42c2b38f3e046656431623367f06b456913de
 P
  BLL.Interface/Entities/Status.cs,4/5/455930019f53ea127aeb43b659bcff9d59027f0c
 P
  BLL.Interface/Entities/Course.cs,d/0/d0608d6d36cf9dd5593f9a4b96c780b6d677d138
 R
 "BLL.Interface/BLL.Interface.csproj,0/5/0558ab5590d4464fa2dfd77a33e69199cbd24045
-G
-Web.UI/appsettings.json,c/9/c984bcb462737b02673c3959d6bbde495d23591f
-S
-#Web.UI/appsettings.Development.json,a/1/a1d41485fc98e350b99f6d7dfcb217b2cfe52cc6
-A
-Web.UI/Program.cs,4/c/4c488a7eb25db1cb556589aa02e881ae2ac4aa1c
 P
  Web.UI/Views/_ViewImports.cshtml,a/d/ad32af09aa3a5f617a760ff9bf3173bf482f337f
 N
 Web.UI/Views/_ViewStart.cshtml,b/2/b27c848c1a912c5fa23516104f9c2d0ab494fb31
 d
 4Web.UI/Views/Shared/_ValidationScriptsPartial.cshtml,2/1/21131c2b8146ec07b52278157926813dd7482d8d
-P
- Web.UI/Views/Shared/Error.cshtml,e/f/efed1ffd4776ddbf664c649f2a773a15835c40ce
 L
 DAL.Interface/DTO/IEntity.cs,7/5/755dc6b994cc92de94b563da8add928c55020fed
-R
-"Web.UI/Views/Shared/_Layout.cshtml,6/0/6090ec8ff8c4263265bd71d889ab4084568a66ff
 Y
 )DAL.Interface/Repositories/IRepository.cs,b/2/b2a4060cee2b211257d555acdfedf62af4af05ce
 _
@@ -119,8 +107,6 @@ l
 <Web.UI/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt,9/2/9241ec5c63725ab6534fda2530011307cc84a16b
 
 OWeb.UI/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js,a/4/a44d74e5313d77041b2956b894000901b734b433
-U
-%Web.UI/Properties/launchSettings.json,6/3/632a41fa0b6c2652298e3531ecbbeacd5805a22b
 >
 DAL/DAL.csproj,d/8/d86dd49581f2123b337954982c26d5b73551acad
 Y
@@ -141,5 +127,21 @@ T
 $BLL.Interface/Entities/CourseWork.cs,3/a/3ae523aa7b3f7549bc8e8687517430912aaf12cc
 U
 %BLL/Servicies/ConsoleMessageSender.cs,2/6/260ee88c3d0033fe75f257dd6db7f316fcb4793e
-T
-$Web.UI/ViewModels/CourseViewModel.cs,0/a/0a128d8437dfd7f68b16852e684168d30e16f1fe
+P
+ BLL.Interface/Entities/Mentor.cs,5/a/5a1780d0af30003973ab4fa4342b4ed5c563b3cb
+Q
+!BLL.Interface/Entities/Student.cs,9/c/9c27076a52aa7824888df37a31fc79a63c342c70
+Q
+!Web.UI/Views/Home/Students.cshtml,0/4/0496f81ff4b9a8d2323ba8d87d9fd0ecc2291349
+F
+ConsoleTest/Program.cs,a/f/af47b809d37c2183eff366070103c2fe396553be
+R
+"BLL/Servicies/MailMessageSender.cs,c/d/cda94b5d7f321d42da0b808901257c5db7aeb8f7
+R
+"Web.UI/Views/Shared/_Layout.cshtml,6/0/6090ec8ff8c4263265bd71d889ab4084568a66ff
+A
+Web.UI/Program.cs,4/c/4c488a7eb25db1cb556589aa02e881ae2ac4aa1c
+G
+Web.UI/appsettings.json,c/9/c984bcb462737b02673c3959d6bbde495d23591f
+S
+#Web.UI/appsettings.Development.json,a/1/a1d41485fc98e350b99f6d7dfcb217b2cfe52cc6

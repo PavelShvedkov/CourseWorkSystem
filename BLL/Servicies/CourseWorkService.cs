@@ -70,6 +70,11 @@ namespace BLL.Servicies
             courseWorkRepo.Update(mapper.Map<CourseWorkDto>(courseWork));
         }
 
+        public void Add(CourseWork courseWork)
+        {
+            courseWorkRepo.Add(mapper.Map<CourseWorkDto>(courseWork));
+        }
+
         public void Publish(Mentor mentor, IEnumerable<CourseWork> courseWorks)
         {
             mentor.Publish(courseWorks,sender);
