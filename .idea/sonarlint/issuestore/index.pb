@@ -14,10 +14,6 @@ D
 P
  BLL.Interface/Entities/Status.cs,4/5/455930019f53ea127aeb43b659bcff9d59027f0c
 P
- BLL.Interface/Entities/Course.cs,d/0/d0608d6d36cf9dd5593f9a4b96c780b6d677d138
-R
-"BLL.Interface/BLL.Interface.csproj,0/5/0558ab5590d4464fa2dfd77a33e69199cbd24045
-P
  Web.UI/Views/_ViewImports.cshtml,a/d/ad32af09aa3a5f617a760ff9bf3173bf482f337f
 N
 Web.UI/Views/_ViewStart.cshtml,b/2/b27c848c1a912c5fa23516104f9c2d0ab494fb31
@@ -31,14 +27,10 @@ _
 /DAL.Interface/Repositories/IMentorRepository.cs,3/6/36d2d59373143317ad753f903b9221c8443ba68a
 `
 0DAL.Interface/Repositories/IStudentRepository.cs,c/d/cdf80a4a78b31f80a727ee62e6ee70041b163f79
-H
-DAL.Fake/DAL.Fake.csproj,1/b/1bfbb3c6e18ec765506010f16954a72d340e5c33
 I
 Web.UI/wwwroot/js/site.js,a/7/a79da076e6217bf3684d10a6f1850ef009401bb2
 K
 Web.UI/wwwroot/css/site.css,6/1/61eed4d537e4e7b764f80084729a94e20e54b6ca
->
-BLL/BLL.csproj,e/0/e0f4552e00511decec5f0d8b0bbde386377409da
 U
 %Web.UI/wwwroot/lib/jquery/LICENSE.txt,6/2/62519a050208b46aba70b89eb084779ab77072da
 X
@@ -73,8 +65,6 @@ g
 7Web.UI/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css,d/e/def6c091c8c64a80d32c281e3024fa7f1a529193
 l
 <Web.UI/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map,f/c/fc1be40c0af3582077aacbd7f419c7b5cc55f0bf
-R
-"DAL.Interface/DAL.Interface.csproj,a/7/a79b8838ce9aef8b357ca669ff8032accbad6da1
 j
 :Web.UI/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css,9/d/9da0294a8d9b3dcc0d0ea0b9e74f63a1e1a0e604
 p
@@ -107,16 +97,8 @@ l
 <Web.UI/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt,9/2/9241ec5c63725ab6534fda2530011307cc84a16b
 
 OWeb.UI/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js,a/4/a44d74e5313d77041b2956b894000901b734b433
->
-DAL/DAL.csproj,d/8/d86dd49581f2123b337954982c26d5b73551acad
 Y
 )DAL.Fake/Repositories/MentorRepository.cs,0/1/01cb1cf5c3fe6eb5b3bb44dc1f3a311438ac741b
-D
-ORM.EF/ORM.EF.csproj,5/4/5465c44cb5a3b3cf608949891c5b92c4a8dddcf8
-N
-ConsoleTest/ConsoleTest.csproj,b/3/b34a370ddac5c819a673b4a5e94b5eb60f5449b2
-Z
-*DAL.Fake/Repositories/StudentRepository.cs,f/a/fa4ed4a9e34b1731c52de26aab46a22af403ce0e
 N
 DAL.Interface/DTO/MentorDto.cs,7/c/7cdb95eba5ba8342a228f8568582415f743c4f81
 Y
@@ -127,8 +109,6 @@ T
 $BLL.Interface/Entities/CourseWork.cs,3/a/3ae523aa7b3f7549bc8e8687517430912aaf12cc
 U
 %BLL/Servicies/ConsoleMessageSender.cs,2/6/260ee88c3d0033fe75f257dd6db7f316fcb4793e
-P
- BLL.Interface/Entities/Mentor.cs,5/a/5a1780d0af30003973ab4fa4342b4ed5c563b3cb
 Q
 !BLL.Interface/Entities/Student.cs,9/c/9c27076a52aa7824888df37a31fc79a63c342c70
 Q
@@ -141,7 +121,5 @@ R
 "Web.UI/Views/Shared/_Layout.cshtml,6/0/6090ec8ff8c4263265bd71d889ab4084568a66ff
 A
 Web.UI/Program.cs,4/c/4c488a7eb25db1cb556589aa02e881ae2ac4aa1c
-G
-Web.UI/appsettings.json,c/9/c984bcb462737b02673c3959d6bbde495d23591f
 S
 #Web.UI/appsettings.Development.json,a/1/a1d41485fc98e350b99f6d7dfcb217b2cfe52cc6

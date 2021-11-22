@@ -9,9 +9,11 @@ using DAL.Interface.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ORM.EF;
 using Web.UI.Infrastructure;
 
 namespace Web.UI
@@ -27,9 +29,10 @@ namespace Web.UI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IStudentRepository,StudentRepository>();
-            services.AddSingleton<IMentorRepository,MentorRepository>();
-            services.AddSingleton<ICourseWorkRepository,CourseWorkRepository>();
+            services.AddDbContext<CourseWorkContext>(options => options.UseSqlite(Configuration["ConnectionString: Connection"]));
+            services.AddScoped<IStudentRepository,StudentRepository>();
+            services.AddScoped<IMentorRepository,MentorRepository>();
+            services.AddScoped<ICourseWorkRepository,CourseWorkRepository>();
             services.AddScoped<ICourseWorkService,CourseWorkService>();
             services.AddScoped<IMessageSender,MailMessageSender>();
             services.AddScoped(typeof(MappingProfileWeb));

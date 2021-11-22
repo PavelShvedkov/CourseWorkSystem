@@ -9,6 +9,7 @@
       <ProjectReference Include="..\BLL\BLL.csproj" />
       <ProjectReference Include="..\DAL.Fake\DAL.Fake.csproj" />
       <ProjectReference Include="..\DAL.Interface\DAL.Interface.csproj" />
+      <ProjectReference Include="..\ORM.EF\ORM.EF.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -18,6 +19,16 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.12">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.12" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     </ItemGroup>
 
