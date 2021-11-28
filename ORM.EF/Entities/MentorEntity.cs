@@ -12,6 +12,7 @@ namespace ORM.EF.Entities
         public string FullName { get; set; }
         [Required]
         public string Email { get; set; }
+        
         public virtual IEnumerable<CourseWorkEntity> CourseWorks { get; set; }
     }
 }
