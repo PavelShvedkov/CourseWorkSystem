@@ -5,7 +5,8 @@ namespace ORM.EF
 {
     public class CourseWorkContext: DbContext
     {
-        public CourseWorkContext(DbContextOptions<CourseWorkContext> options) : base(options)
+        public CourseWorkContext(DbContextOptions<CourseWorkContext> options) 
+            : base(options)
         {
         }
         
@@ -21,8 +22,7 @@ namespace ORM.EF
                 .Entity<StudentEntity>()
                 .HasOne(s => s.CourseWork)
                 .WithOne(c => c.Student)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasForeignKey<StudentEntity>(s => s.Id);
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder
                 .Entity<StudentEntity>()
@@ -35,10 +35,9 @@ namespace ORM.EF
                 .HasConversion<string>();
         }
 
-        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite(@"DataSource=first.db;");
-        }*/
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseSqlite(@"DataSource=first.db;");
+        // }
     }
 }
-

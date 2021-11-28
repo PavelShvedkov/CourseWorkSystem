@@ -1,9 +1,7 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using AutoMapper;
 using BLL.Interface.Entities;
 using BLL.Interface.Servicies;
-using BLL.Mappers;
 using Microsoft.AspNetCore.Mvc;
 using Web.UI.Infrastructure;
 using Web.UI.ViewModels;

@@ -1,14 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BLL.Interface.Servicies;
 using BLL.Servicies;
-using DAL.Fake.Repositories;
 using DAL.Interface.Repositories;
+using DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,15 +24,15 @@ namespace Web.UI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CourseWorkContext>(options => options.UseSqlite(Configuration["ConnectionString: Connection"]));
-            services.AddScoped<IStudentRepository,StudentRepository>();
-            services.AddScoped<IMentorRepository,MentorRepository>();
-            services.AddScoped<ICourseWorkRepository,CourseWorkRepository>();
-            services.AddScoped<ICourseWorkService,CourseWorkService>();
-            services.AddScoped<IMessageSender,MailMessageSender>();
+            services.AddDbContext<CourseWorkContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("Connection")));
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IMentorRepository, MentorRepository>();
+            services.AddScoped<ICourseWorkRepository, CourseWorkRepository>();
+            services.AddScoped<ICourseWorkService, CourseWorkService>();
+            services.AddScoped<IMessageSender, MailMessageSender>();
             services.AddScoped(typeof(MappingProfileWeb));
             services.AddControllersWithViews();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -65,6 +60,8 @@ namespace Web.UI
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            
+            SeedData.EnsurePopulated(app);
         }
     }
 }

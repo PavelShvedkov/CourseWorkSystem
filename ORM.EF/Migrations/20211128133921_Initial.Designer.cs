@@ -9,8 +9,8 @@ using ORM.EF;
 namespace ORM.EF.Migrations
 {
     [DbContext(typeof(CourseWorkContext))]
-    [Migration("20211122105718_changeProp1")]
-    partial class changeProp1
+    [Migration("20211128133921_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace ORM.EF.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -41,6 +41,9 @@ namespace ORM.EF.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("MentorId");
+
+                    b.HasIndex("StudentId")
+                        .IsUnique();
 
                     b.ToTable("CourseWorks");
                 });
@@ -67,6 +70,7 @@ namespace ORM.EF.Migrations
             modelBuilder.Entity("ORM.EF.Entities.StudentEntity", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Course")
@@ -92,28 +96,24 @@ namespace ORM.EF.Migrations
                         .WithMany("CourseWorks")
                         .HasForeignKey("MentorId");
 
+                    b.HasOne("ORM.EF.Entities.StudentEntity", "Student")
+                        .WithOne("CourseWork")
+                        .HasForeignKey("ORM.EF.Entities.CourseWorkEntity", "StudentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.Navigation("Mentor");
-                });
 
-            modelBuilder.Entity("ORM.EF.Entities.StudentEntity", b =>
-                {
-                    b.HasOne("ORM.EF.Entities.CourseWorkEntity", "CourseWork")
-                        .WithOne("Student")
-                        .HasForeignKey("ORM.EF.Entities.StudentEntity", "Id")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
-
-                    b.Navigation("CourseWork");
-                });
-
-            modelBuilder.Entity("ORM.EF.Entities.CourseWorkEntity", b =>
-                {
                     b.Navigation("Student");
                 });
 
             modelBuilder.Entity("ORM.EF.Entities.MentorEntity", b =>
                 {
                     b.Navigation("CourseWorks");
+                });
+
+            modelBuilder.Entity("ORM.EF.Entities.StudentEntity", b =>
+                {
+                    b.Navigation("CourseWork");
                 });
 #pragma warning restore 612, 618
         }
