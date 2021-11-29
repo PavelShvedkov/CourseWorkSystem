@@ -49,5 +49,28 @@ namespace Web.UI.Controllers
             service.Add(mapper.Map<CourseWork>(courseWork));
             return RedirectToAction("Index");
         }
+
+        public IActionResult Select(int id)
+        {
+            var studentUser = service.GetStudents().First();
+            service.Select(studentUser, service.GetCourseWorks().First(x => (x.Id == id)));
+            return RedirectToAction("Index");
+        }
+        
+        public IActionResult Approve(int id)
+        {
+            //this.User
+            var mentorUser = service.GetMentors().First();
+            service.Approve(mentorUser, service.GetCourseWorks().First(x => (x.Id == id)));
+            return RedirectToAction("Index");
+        }
+        
+        public IActionResult Decline(int id)
+        {
+            var mentorUser = service.GetMentors().First();
+            service.Decline(mentorUser, service.GetCourseWorks().First(x => (x.Id == id)));
+            return RedirectToAction("Index");
+        }
+        
     }
 }

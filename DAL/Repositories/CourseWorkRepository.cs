@@ -34,13 +34,15 @@ namespace DAL.Repositories
 
         public void Update(CourseWorkDto work)
         {
-            //var workDto = courseWorks.Find(w => w.Id == work.Id);
-            // workDto.Status = work.Status;
+            var workDto = context.CourseWorks.First(w => (w.Id == work.Id));
+            workDto.Status = (StatusEntity)(work.Status);
+            context.SaveChanges();
         }
 
         public void Add(CourseWorkDto work)
         {
             context.CourseWorks.Add(mapper.Map<CourseWorkEntity>(work));
+            context.SaveChanges();
         }
     }
 }

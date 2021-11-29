@@ -31,9 +31,15 @@
                 @Html.DisplayFor(modelItem => item.StatusViewModel)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+                @*@Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                @if (item.StatusViewModel == StatusViewModel.NotAppointed)
+                {
+                    @Html.ActionLink("Select","Select",new{ id=item.Id})
+                }
+                @Html.ActionLink("Approve","Approve",new { id = item.Id})
+                @Html.ActionLink("Decline","Decline",new { id = item.Id})
             </td>
         </tr>
 }

@@ -1,12 +1,8 @@
 
-K
-DAL.Interface/DTO/Course.cs,2/3/2344010c44b0b65193a6884c42dad40485caa3ed
 R
 "DAL.Interface/DTO/CourseWorkDto.cs,5/8/583963c6cf1db09f4b9a33fec20894673ea6a972
 N
 DAL.Interface/DTO/StatusDto.cs,c/2/c2b4097a99726f466b591a3a1b10a9907b15a623
-L
-Console.UI/Console.UI.csproj,0/5/05feaf16bd9db644811af25744b143a463fd4cfc
 O
 DAL.Interface/DTO/StudentDto.cs,4/2/420673d9c8f74cf85af96f699cbae5e266e3fadd
 D
@@ -125,18 +121,8 @@ S
 #Web.UI/appsettings.Development.json,a/1/a1d41485fc98e350b99f6d7dfcb217b2cfe52cc6
 U
 %Web.UI/Properties/launchSettings.json,6/3/632a41fa0b6c2652298e3531ecbbeacd5805a22b
-]
--BLL.Interface/Servicies/ICourseWorkService.cs,1/d/1dd42c2b38f3e046656431623367f06b456913de
-R
-"BLL/Servicies/CourseWorkService.cs,d/b/db1261490ab03625a2f81e1eda40d2a72ad22b57
-]
--DAL.Fake/Repositories/CourseWorkRepository.cs,1/5/15bba38fb78ee769d7e876d44d37ebd0e825302e
 Z
 *Web.UI/Infrastructure/MappingProfileWeb.cs,2/3/2349e905c5cf639f6d4599aae8bf674cfc0d80f1
-T
-$Web.UI/Controllers/HomeController.cs,e/f/ef3960bac78ffd1d123742b03cb7e8448284a76a
-N
-Web.UI/Views/Home/Index.cshtml,6/6/666265b150ec9ca8ff2e5b1250d4cec3160b1613
 P
  BLL.Interface/Entities/Course.cs,d/0/d0608d6d36cf9dd5593f9a4b96c780b6d677d138
 P
@@ -157,3 +143,13 @@ N
 ConsoleTest/ConsoleTest.csproj,b/3/b34a370ddac5c819a673b4a5e94b5eb60f5449b2
 R
 "DAL.Interface/DAL.Interface.csproj,a/7/a79b8838ce9aef8b357ca669ff8032accbad6da1
+c
+3ORM.EF/Migrations/CourseWorkContextModelSnapshot.cs,1/a/1a5925652dc4714c34ff5da5e6876d7240563526
+O
+Web.UI/Views/Home/Create.cshtml,d/0/d0e68394b046fcb5c93ffd3640d5c06e4a9c29e2
+O
+ORM.EF/Entities/StatusEntity.cs,2/c/2c774eb2467357572451cd8731ba33c6405b0c55
+O
+ORM.EF/Entities/CourseEntity.cs,f/4/f4d2fbf12255784de2d62bb3dca914596b52a0c9
+G
+Web.UI/appsettings.json,c/9/c984bcb462737b02673c3959d6bbde495d23591f
