@@ -42,6 +42,13 @@ namespace BLL.Servicies
             return courseWorkRepo.Get().Select(c => mapper.Map<CourseWork>(c));
         }
 
+        public IEnumerable<CourseWork> GetCourseWorks(Mentor mentor)
+        {
+            return courseWorkRepo
+                .GetCourseWorks(mapper.Map<MentorDto>(mentor))
+                .Select(c => mapper.Map<CourseWork>(c));
+        }
+
         public IEnumerable<Mentor> GetMentors()
         {
             return mentorRepo.Get().Select(c => mapper.Map<Mentor>(c));

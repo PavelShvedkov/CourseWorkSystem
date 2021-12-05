@@ -35,5 +35,10 @@ namespace DAL.Fake.Repositories
         {
           courseWorks.Add(work);
         }
+
+        public IEnumerable<CourseWorkDto> GetCourseWorks(MentorDto mentor)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

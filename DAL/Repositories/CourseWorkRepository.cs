@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using AutoMapper;
 using DAL.Interface.DTO;
 using DAL.Interface.Repositories;
 using DAL.Mappers;
+using Microsoft.EntityFrameworkCore;
 using ORM.EF;
 using ORM.EF.Entities;
 
@@ -24,7 +26,10 @@ namespace DAL.Repositories
 
         public IEnumerable<CourseWorkDto> Get()
         {
-            return context.CourseWorks.Select(s => mapper.Map<CourseWorkDto>(s));
+            return context.CourseWorks
+                .Include(c => c.Mentor)
+                .Include(c => c.Student)
+                .Select(s => mapper.Map<CourseWorkDto>(s));
         }
 
         public CourseWorkDto GetBy(int id)
@@ -43,6 +48,18 @@ namespace DAL.Repositories
         {
             context.CourseWorks.Add(mapper.Map<CourseWorkEntity>(work));
             context.SaveChanges();
+        }
+
+        public IEnumerable<CourseWorkDto> GetCourseWorks(MentorDto mentor)
+        {
+            var mentorEntity = mapper.Map<MentorEntity>(mentor);
+
+           return context
+               .CourseWorks
+               .Include(c => c.Mentor)
+               //.Include(c => c.Student)
+               .Where(m => m.Mentor.Id == mentorEntity.Id)
+               .Select(e => mapper.Map<CourseWorkDto>(e));
         }
     }
 }
