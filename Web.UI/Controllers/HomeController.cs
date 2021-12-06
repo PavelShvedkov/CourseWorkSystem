@@ -2,6 +2,7 @@
 using AutoMapper;
 using BLL.Interface.Entities;
 using BLL.Interface.Servicies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.UI.Infrastructure;
 using Web.UI.ViewModels;
@@ -12,33 +13,44 @@ namespace Web.UI.Controllers
     {
         private ICourseWorkService service;
         private IMapper mapper;
-        public HomeController(ICourseWorkService service)
+        private IMessageSender sender;
+        public HomeController(ICourseWorkService service, IMessageSender sender)
         {
             this.service = service;
+            this.sender = sender;
             mapper = new MapperConfiguration(c => c.AddProfile(new MappingProfileWeb())).CreateMapper();
         }
-
+        
+        [Authorize(Roles = "Mentor, Student")]
         public IActionResult Index()
         {
-            var works = service.GetCourseWorks();
-            return View(works.Select(w => mapper.Map<CourseWork, CourseWorkViewModel>(w)));
+            var userName = this.User?.Identity?.Name;
+            //var claim = this.User.Identity.IsAuthenticated;
+            //var role = this.User.IsInRole("Mentor");
+            //var works = service.GetCourseWorks();
+
+            var mentor = service.GetMentors().FirstOrDefault(m => m.Email == userName);
+
+            var works = service
+                .GetCourseWorks(mapper.Map<Mentor>(mentor))
+                .Select(w => mapper.Map<CourseWork, CourseWorkViewModel>(w));
+            
+            return View(service
+                .GetCourseWorks()
+                .Select(w => mapper.Map<CourseWork, CourseWorkViewModel>(w)));
         }
 
         public IActionResult Students()
         {
             var works = service.GetStudents()
                 .Select(s => mapper.Map<Student, StudentViewModel>(s));
+            
             return View(works);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            /*CourseWorkViewModel work = new CourseWorkViewModel()
-            {
-                Title = "Enter the title"
-            };*/
-            
             return View();
         }
         
@@ -71,6 +83,5 @@ namespace Web.UI.Controllers
             service.Decline(mentorUser, service.GetCourseWorks().First(x => (x.Id == id)));
             return RedirectToAction("Index");
         }
-        
     }
 }

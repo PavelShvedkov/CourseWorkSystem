@@ -7,6 +7,7 @@ namespace BLL.Interface.Servicies
     public interface ICourseWorkService
     {
         IEnumerable<CourseWork> GetCourseWorks();
+        IEnumerable<CourseWork> GetCourseWorks(Mentor mentor);
         IEnumerable<Mentor> GetMentors();
         IEnumerable<Student> GetStudents();
 
